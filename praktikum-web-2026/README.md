@@ -4,3 +4,8 @@
 * **NIM:** 2206058
 * **Kelas/Prodi:** Teknik Informatika - ITG
 * **Kode MK:** IFRWP5151
+
+# Spesifikasi Perangkat 
+**Informasi Perangkat:**
+**Device:** Komputer Lab
+**Spesifikasi:** Komputer ACER i7 Gen13
