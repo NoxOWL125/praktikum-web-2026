@@ -1,3 +1,10 @@
+:root {
+    /* Custom Accent Color */
+    --accent-color: #0d6efd;
+    --accent-hover: #0a58ca;
+    --accent-light: #eaf2ff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +12,7 @@
 }
 
 body {
-    font-family: arial, sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
@@ -36,10 +43,11 @@ nav ul {
 nav a {
     color: #333;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #0d6efd;
+    color: var(--accent-color);
 }
 
 main {
@@ -51,6 +59,12 @@ main {
 section {
     background-color: white;
     padding: 25px;
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease;
+}
+
+section:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 main img {
@@ -58,10 +72,17 @@ main img {
     max-width: 100%;
     height: auto;
     margin: 0;
+    transition: transform 0.3s ease;
+}
+
+main img:hover {
+    transform: scale(1.02);
 }
 
 h2 {
     margin-bottom: 15px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
 }
 
 h3 {
@@ -75,6 +96,13 @@ h3 {
 article {
     padding: 15px 0;
     border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease,
+                padding-left 0.3s ease;
+}
+
+article:hover {
+    background-color: var(--accent-light);
+    padding-left: 10px;
 }
 
 article:last-child {
@@ -93,7 +121,19 @@ textarea {
     width: 100%;
     padding: 9px;
     border: 1px solid #ccc;
+    border-radius: 4px;
     font-family: Arial, sans-serif;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
 }
 
 textarea {
@@ -103,17 +143,29 @@ textarea {
 button {
     padding: 9px 15px;
     border: none;
-    background-color: #333;
+    border-radius: 4px;
+    background-color: var(--accent-color);
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 button[type="reset"] {
     background-color: #888;
 }
 
-button:hover {
-    opacity: 0.8;
+button[type="reset"]:hover {
+    background-color: #666;
 }
 
 aside {
@@ -121,7 +173,12 @@ aside {
     margin: 30px auto;
     padding: 20px;
     background-color: white;
-    border-left: 3px solid #0d6efd;
+    border-left: 3px solid var(--accent-color);
+    transition: border-left-width 0.3s ease;
+}
+
+aside:hover {
+    border-left-width: 6px;
 }
 
 footer {
@@ -136,7 +193,6 @@ hr {
 }
 
 @media (max-width: 700px) {
-    
     nav ul {
         flex-direction: column;
         gap: 8px;
@@ -153,5 +209,13 @@ hr {
     section {
         padding: 20px;
     }
+}
 
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
 }
