@@ -1,35 +1,135 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projek Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
 
     <header>
-        <h1 style="text-align: center;">Projek</h1>
+        <h1 style="text-align: center;">Portfolio Tracker</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="kontak.html">Hubungi Saya</a></li>
                 <li><a href="resume.html">Tentang Saya</a></li>
-                <li><a href="projek.html">Projek</a></li>
+                <li><a href="projek.html" aria-current="page">Projek</a></li>
             </ul>
         </nav>
     </header>
-    
-    <main>
-        <section>
-            <h2>Projek Berjalan</h2>
-            <ul>
-                <li>Web Interaktif UMKM</li>
-                <p>Web ini dibuat untuk mempermudah para penggiat UMKM melakukan pengecekan stok barang, input data barang, edit data barang, dan hapus data barang.</p>
-                <li>Manajemen Data Warga</li>
-                <p>Web ini dibuat untuk mempermudah RT/RW melakukan pencatatan data warga baru, warga tetap, dan waktu sementara (mengontrak/kos)</p>
-            </ul>
-        </section>
 
+    <main class="halaman-proyek">
+        <div class="tracker-container">
+
+            <section class="intro-tracker">
+                <h2>Pengelolaan Proyekan!</h2>
+                <p>
+                    Gassskeun!
+                </p>
+            </section>
+
+            <section class="panel-tracker">
+                <h2>Ringkasan Proyek</h2>
+                <div class="statistik-grid">
+                    <article class="kartu-statistik">
+                        <p>Total Proyek</p>
+                        <h3 id="totalProyek">0</h3>
+                    </article>
+
+                    <article class="kartu-statistik">
+                        <p>Dalam Pengerjaan</p>
+                        <h3 id="proyekBerjalan">0</h3>
+                    </article>
+
+                    <article class="kartu-statistik">
+                        <p>Proyek Selesai</p>
+                        <h3 id="proyekSelesai">0</h3>
+                    </article>
+
+                    <article class="kartu-statistik">
+                        <p>Total Anggaran</p>
+                        <h3 id="totalAnggaran">Rp0</h3>
+                    </article>
+                </div>
+            </section>
+
+            <section class="panel-tracker">
+                <h2>Tambah Proyek</h2>
+                <form id="formProyek" class="form-proyek">
+
+                    <div class="form-group">
+                        <label for="judulProyek">Nama Proyek</label>
+                        <input
+                            type="text"
+                            id="judulProyek"
+                            placeholder="Contoh: Website UMKM"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kategoriProyek">Kategori Proyek</label>
+                        <select id="kategoriProyek" required>
+                            <option value="Web App">Web App</option>
+                            <option value="Mobile App">Mobile App</option>
+                            <option value="Desktop App">Desktop App</option>
+                            <option value="UI/UX Design">UI/UX Design</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="anggaranProyek">Estimasi Anggaran (Rp)</label>
+                        <input
+                            type="number"
+                            id="anggaranProyek"
+                            placeholder="Contoh: 1500000"
+                            min="0.01"
+                            step="any"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group status-input">
+                        <input
+                            type="checkbox"
+                            id="statusProyek"
+                        >
+                        <label for="statusProyek">
+                            Proyek sudah selesai
+                        </label>
+                    </div>
+
+                    <button type="submit">Tambah Proyek</button>
+                </form>
+
+                <p id="pesanForm" aria-live="polite"></p>
+            </section>
+
+            <section class="panel-tracker">
+                <h2>Daftar Proyek</h2>
+                <div class="form-group pencarian-proyek">
+                    <label for="pencarianProyek">Cari Proyek</label>
+                    <input
+                        type="search"
+                        id="pencarianProyek"
+                        placeholder="Ketik nama proyek..."
+                    >
+                </div>
+
+                <div id="daftarProyek" class="proyek-grid">
+                </div>
+            </section>
+
+        </div>
     </main>
+
+    <footer>
+        <p>&copy; 2026 Portfolio Tracker</p>
+    </footer>
+
 </body>
 </html>
