@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,18 +9,37 @@
 </head>
 <body>
     <div class="todo-app">
-    <h2>Daftar Tugas Saya</h2>
- 
-    <form id="todoForm" novalidate>
-        <div class="input-section">
-        <input type="text" id="taskInput" placeholder="Ketikkan tugas baru Anda...">
-        <button type="submit" class="add-btn">Tambah</button>
- </div>
- <div class="error-message" id="inputError">Tugas tidak boleh kosong atau kurang dari 3 karakter!</div>
-</form>
+        <h2>Daftar Tugas Saya</h2>
 
-    <ul class="todo-list" id="todoList"></ul>
- </div>
+        <p id="taskCounter" class="task-counter">
+            Total: 0 Tugas | Selesai: 0 | Belum Selesai: 0
+        </p>
+
+        <form id="todoForm" novalidate>
+            <div class="input-section">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Ketikkan tugas baru Anda..."
+                >
+                <button type="submit" class="add-btn">Tambah</button>
+            </div>
+
+            <div class="error-message" id="inputError">
+                Tugas tidak boleh kosong atau kurang dari 3 karakter!
+            </div>
+        </form>
+
+        <ul class="todo-list" id="todoList"></ul>
+
+        <button
+            type="button"
+            id="clearCompletedBtn"
+            class="clear-completed-btn"
+        >
+            Bersihkan Tugas Selesai
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>
