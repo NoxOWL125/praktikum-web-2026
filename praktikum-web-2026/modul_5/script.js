@@ -68,9 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         const taskText = taskInput.value.trim();
-        const tasks = getTasks();
+        const kebanyakanData = getTasks();
 
-        if (tasks.length >= 5) {
+        if (kebanyakanData.length >= 5) {
             taskInput.classList.add("error");
             inputError.style.display = "block";
             inputError.textContent =
@@ -89,13 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
         taskInput.classList.remove("error");
         inputError.style.display = "none";
 
+        const tasks = getTasks();
+
         tasks.push({
             text: taskText,
             completed: false
         });
 
         saveTasks(tasks);
-
         taskInput.value = "";
         renderTasks();
     });
@@ -133,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    
     clearCompletedBtn.addEventListener("click", () => {
         const tasks = getTasks();
 
@@ -159,4 +159,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    renderTasks();
 });
